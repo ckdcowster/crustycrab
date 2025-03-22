@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "GO INIT",
+        "type": "shell",
+        "command": "/usr/local/go/bin/go mod init github.com/ckdcowster/stuff/Go",
+        "group": "build",
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "GO RUN",
+        "type": "shell",
+        "command": "/usr/local/go/bin/go run ${fileBasename}",
+        "group": "build",
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "GO BUILD",
+        "type": "shell",
+        "command": "/usr/local/go/bin/go build ${fileBasename}",
+        "group": "build",
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "GO PRE TASKS",
+        "dependsOn": ["GO INIT", "GO BUILD"]
+      },
+      {
+        "label": "GO TEST",
+        "type": "shell",
+        "command": "/usr/local/go/bin/go test -v",
+        "group": "test",
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      },
+      {
+        "label": "GIT TAG REMOTE",
+        "type": "shell",
+        "command": "git push origin --tags",
+        "group": "build",
+        "options": {
+          "cwd": "${fileDirname}"
+        }
+      }
+
+    ]
+  }
