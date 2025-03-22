@@ -1,10 +1,8 @@
 /*
 
-Hands-on exercise #50 - add a record
-Using the code from the previous example, add a record to your map. Now print the map out
-using the “range” loop
-key 			value
-`fleming_ian` 	`steaks`, `cigars`, `espionage`
+Hands-on exercise #51 - delete a record
+Using the code from the previous example, delete a record from your map. Now print the map
+out using the “range” loop
 
 */
 
@@ -26,7 +24,7 @@ func main() {
 		}
 	}
 
-	fmt.Println("-------------------------------")
+	fmt.Println("---------------add----------------")
 	my_map[`fleming_ian`] = []string{`steaks`, `cigars`, `espionage`}
 	for k, v := range my_map {
 		fmt.Println("key is", k)
@@ -34,4 +32,15 @@ func main() {
 			fmt.Printf("idx = %v \tvalue = %v\n", i, s)
 		}
 	}
+
+	fmt.Println("---------------delete----------------")
+	// delete a record
+	delete(my_map, `no_dr`)
+	for k, v := range my_map {
+		fmt.Println("key is", k)
+		for i, s := range v {
+			fmt.Printf("idx = %v \tvalue = %v\n", i, s)
+		}
+	}
+
 }
